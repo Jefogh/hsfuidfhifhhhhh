@@ -1,0 +1,8 @@
+torch==2.5.1
+torchvision==0.20.1
+numpy==1.26.4
+opencv-python
+Pillow==10.4.0
+tk
+requests==2.32.3
+openvino==2024.5.0
