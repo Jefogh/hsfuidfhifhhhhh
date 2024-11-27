@@ -4,12 +4,7 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: # للسماح بتشغيل العمل يدويًا
-    inputs:
-      python_version:
-        description: "Python version to use"
-        default: "3.10"
-        required: true
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,7 +17,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: ${{ inputs.python_version }}
+        python-version: "3.9" # نسخة Python المستخدمة في المشروع
 
     - name: Install dependencies
       run: |
@@ -32,10 +27,10 @@ jobs:
 
     - name: Build EXE
       run: |
-        pyinstaller --onefile --windowed "C:\Users\ccl\Desktop\مجلد جديد (3)\كود الحل السريع اوبن فينو (2).py"
+        pyinstaller --onefile --windowed "main.py"
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
         name: built-exe
-        path: dist/*.exe
+        path: dist/main.exe
