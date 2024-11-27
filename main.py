@@ -22,7 +22,7 @@ class TrainedModel:
         start_time = time.time()
 
         # تحميل نموذج OpenVINO
-        model_path = "C:/Users/ccl/Desktop/trained_model.xml"
+        model_path = "models", "trained_model.xml"
         self.core = Core()
         self.model = self.core.read_model(model=model_path)
         self.compiled_model = self.core.compile_model(self.model, device_name="GPU")  # لاستخدام المعالج الرسومي المدمج
